@@ -34,6 +34,15 @@ class Gallery extends BaseController
             $this->data['product']=$product;
             $this->data['heading'] = ucfirst($product) . " " . $this->data['heading'];
             $dir_to_map = $dir_to_map . "/" . $product;
+
+            switch($product) {
+                case "nice":
+                    $this->data['supplier_url'] = "https://www.niceforyou.com/za";
+                break;
+                case "centurion":
+                    $this->data['supplier_url'] = "https://www.centsys.co.za/";
+                break;
+            }
         }
 
         $this->data['dir_map'] = directory_map($dir_to_map);

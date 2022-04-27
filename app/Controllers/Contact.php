@@ -47,8 +47,8 @@ class Contact extends BaseController
     {
         $email = \Config\Services::email();
 
-        // $to = ' tightfit@hermanus.co.za';
-        $to = 'johan.havenga@gmail.com';
+        $to = ' tightfit@hermanus.co.za';
+        // $to = 'johan.havenga@gmail.com';
         $subject = 'Website Contact: ' . $this->request->getVar('name');
 
         $email->setTo($to);
