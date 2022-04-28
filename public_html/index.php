@@ -27,6 +27,7 @@ $paths = new Config\Paths();
 $bootstrap = rtrim($paths->systemDirectory, '\\/ ') . DIRECTORY_SEPARATOR . 'bootstrap.php';
 $app       = require realpath($bootstrap) ?: $bootstrap;
 
+ini_set("zlib.output_compression", 0);
 /*
  *---------------------------------------------------------------
  * LAUNCH THE APPLICATION

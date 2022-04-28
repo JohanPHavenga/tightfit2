@@ -59,8 +59,8 @@
                 <!-- Logo
                     ============================================= -->
                 <div id="logo">
-                    <a href="index.html" class="standard-logo"><img src="<?= base_url(); ?>/images/logo.png" alt="Canvas Logo"></a>
-                    <a href="index.html" class="retina-logo"><img src="<?= base_url(); ?>/images/logo@2x.png" alt="Canvas Logo"></a>
+                    <a href="<?=base_url();?>" class="standard-logo"><img src="<?= base_url(); ?>/images/logo.png" alt="Canvas Logo"></a>
+                    <a href="<?=base_url();?>" class="retina-logo"><img src="<?= base_url(); ?>/images/logo@2x.png" alt="Canvas Logo"></a>
                 </div><!-- #logo end -->
 
                 <ul class="header-extras">
