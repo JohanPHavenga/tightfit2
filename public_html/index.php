@@ -15,10 +15,23 @@ define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 // Ensure the current directory is pointing to the front controller's directory
 chdir(__DIR__);
 
+/*
+ *---------------------------------------------------------------
+ * JY MOET HIERDIE VERANDER
+ *---------------------------------------------------------------*/
 // Load our paths config file
 // This is the line that might need to be changed, depending on your folder structure.
-$pathsConfig = FCPATH . '../app/Config/Paths.php';
+// kry FTP username
+$parts=explode("/",FCPATH);
+if (count($parts)>1) {
+    $pathsConfig="/usr/home/".$parts[4]."/app/Config/Paths.php";
+    // xneelo
+} else {
+    $pathsConfig = FCPATH . '../app/Config/Paths.php';
+    // local
+}
 // ^^^ Change this if you move your application folder
+
 require realpath($pathsConfig) ?: $pathsConfig;
 
 $paths = new Config\Paths();
