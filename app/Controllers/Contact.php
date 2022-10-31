@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use Config\Services;
+
 class Contact extends BaseController
 {
     public $data = [];
@@ -10,7 +12,7 @@ class Contact extends BaseController
     {
         helper(['form', 'url']);
         $this->data['scripts_to_load'] = [
-            // "https://www.google.com/recaptcha/api.js",
+            "https://www.google.com/recaptcha/api.js",
         ];
 
         $this->data['validation'] =  \Config\Services::validation();
@@ -22,9 +24,15 @@ class Contact extends BaseController
                 'name' => ['label'  => 'Name', 'rules'  => 'required',],
                 'email' => ['label'  => 'Email', 'rules'  => 'required|valid_email',],
                 'message' => ['label'  => 'Message', 'rules'  => 'required',],
+                'g-recaptcha-response' => ['label'  => 'Captcha', 'rules'  => 'recaptcha',],
+            ];
+            $errors = [
+                'g-recaptcha-response' => [
+                    'recaptcha' => 'Please tick the reCaptcha box'
+                ]
             ];
 
-            if (!$this->validate($rules)) {
+            if (!$this->validate($rules, $errors)) {
                 $this->data['validation'] = $this->validator;
                 echo view('templates/header', $this->data);
                 echo view('contact', $this->data);

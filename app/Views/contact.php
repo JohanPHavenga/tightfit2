@@ -66,6 +66,10 @@
                         echo form_textarea($field_data);
                         echo "</div>";
 
+                        echo "<div class='col-12 form-group'>";
+                        echo "<div class='g-recaptcha' data-sitekey='6LfdHsoiAAAAACWdAHZDmH4cUGzUzBc1LnNbIApf'></div>";
+                        echo "</div>";
+
                         $field_data = [
                             'id' => 'send',
                             'class' => 'btn btn-secondary',

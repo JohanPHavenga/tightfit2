@@ -59,7 +59,19 @@
 <!-- Footer Scripts
 ============================================= -->
 <script src="<?= base_url(); ?>/js/functions.js"></script>
+<?php
+if (isset($scripts_to_load)) :
+    foreach ($scripts_to_load as $row) :
+        if (substr($row, 0, 4) == "http") {
+            $js_link = $row;
+        } else {
+            $js_link = base_url($row);
+        }
+        echo "<script src='$js_link' type='text/javascript'></script>";
+    endforeach;
+endif;
+?>
 
 </body>
 
- </html>
+</html>
